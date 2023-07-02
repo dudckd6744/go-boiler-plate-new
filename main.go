@@ -1,17 +1,14 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/dudckd6744/go-boiler-plate/core"
+	"github.com/dudckd6744/go-boiler-plate/modules"
+)
 
 func main() {
-	router := gin.Default()
 
-	router.GET("ping", func(ctx *gin.Context) {
+	core.DBConnection()
+	router := modules.Router()
 
-		ctx.JSON(200, gin.H{
-			"success": true,
-		})
-	})
-
-	router.Run()
-
+	router.Run(":5050")
 }
