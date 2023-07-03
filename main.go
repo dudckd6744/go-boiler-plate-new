@@ -7,6 +7,13 @@ import (
 
 func main() {
 
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		fmt.Println("Exception occurred:", r)
+
+	// 	}
+	// }()
+
 	core.DBConnection()
 	router := modules.Router()
 
