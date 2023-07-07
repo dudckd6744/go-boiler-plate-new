@@ -2,8 +2,8 @@ package modules
 
 import (
 	"fmt"
-	"net/http"
 
+	"github.com/dudckd6744/go-boiler-plate/common/response"
 	middleware "github.com/dudckd6744/go-boiler-plate/core/middleware"
 	"github.com/gin-gonic/gin"
 )
@@ -21,7 +21,8 @@ func Router() *gin.Engine {
 	initRouter.Use(middleware.LoggingMiddleware())
 
 	initRouter.GET("ping", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"success": true})
+
+		response.Success(ctx, gin.H{"success": true})
 	})
 
 	router := initRouter.Group("/api")
