@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/dudckd6744/go-boiler-plate/common/response"
+	"github.com/dudckd6744/go-boiler-plate/modules/user"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,16 +19,15 @@ func Router() *gin.Engine {
 	initRouter := gin.Default()
 
 	initRouter.GET("ping", func(ctx *gin.Context) {
-
 		response.Success(ctx, gin.H{"success": true})
 	})
 
-	router := initRouter.Group("/api")
+	userRouter := initRouter.Group("api/user")
 
 	{
-		router.Group("/user", User)
+		userRouter.GET("/", func(ctx *gin.Context) { user.GetUser(ctx) })
+
 	}
-	// 유저 구조체를 불러들여서 json 으로 반환되는지 확인 필요
 
 	return initRouter
 }

@@ -1,7 +1,6 @@
 package core
 
 import (
-	"github.com/dudckd6744/go-boiler-plate/modules/user"
 	"github.com/fatih/color"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -21,8 +20,6 @@ func DBConnection() *gorm.DB {
 	if err == nil {
 		color.Red("db connection success!!")
 	}
-
-	db.AutoMigrate(&user.User{})
 
 	sqlDB, _ := db.DB()
 	// 현재 사용되지 않는 연결을 유지

@@ -5,14 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Signup(ctx *gin.Context) {
-
-	response.Success(ctx, gin.H{"zz": "Gg"})
-	return
-}
-
-func UserController(router gin.RouterGroup) {
-
-	router.GET("/")
-
+func GetUser(ctx *gin.Context) {
+	result := Service.GetUser()
+	response.Success(ctx, result)
 }
